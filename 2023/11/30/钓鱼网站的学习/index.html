@@ -24,7 +24,7 @@
 
   
 
-  <title>Hello World | Sasuki</title>
+  <title>钓鱼网站的学习 | Sasuki</title>
 
   
 
@@ -101,12 +101,17 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">Hello World</h1>
+          <h1 class="title-wrap">钓鱼网站的学习</h1>
           <h2 class="title-sub-wrap">
             <strong>Ys1</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2023-11-30T11:25:40.806Z" itemprop="datePublished">2023-11-30</time>
+            <time  class="article-date" datetime="2023-11-30T02:30:28.000Z" itemprop="datePublished">2023-11-30</time>
           </h2>
+          
+            <h2 class="last-time">
+              <span>最后更新于</span>
+              <time  class="article-updated" datetime="2023-12-01T08:56:23.485Z" itemprop="dateUpdated">2023-12-01</time>
+            </h2>
           
           
           <ul class="wrap-list dark">
@@ -136,19 +141,17 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <h1 id="钓鱼网站的学习"><a href="#钓鱼网站的学习" class="headerlink" title="钓鱼网站的学习"></a>钓鱼网站的学习</h1><p>注：在虚拟机kali系统中进行</p>
+<h2 id="①给虚拟机挂上代理"><a href="#①给虚拟机挂上代理" class="headerlink" title="①给虚拟机挂上代理"></a>①给虚拟机挂上代理</h2><ol>
+<li>在物理机上的clash🐱中挂上代理并开启局域网，将<strong>端口</strong>和<strong>ip地址</strong>分享给虚拟机</li>
+<li>在kali系统中挂代理，在cmd中输入<code>vim /etc/proxychains4.conf</code>在底端代码中,按<strong>i</strong>选择插入模式,将最后一行改成socks5 192.168.xx.xx(物理机的ip地址),回车输入<code>:wq!</code>保存操作，至此完成kali系统的代理</li>
+</ol>
+<h2 id="②下载老师给的钓鱼网站"><a href="#②下载老师给的钓鱼网站" class="headerlink" title="②下载老师给的钓鱼网站"></a>②下载老师给的钓鱼网站</h2><p>进行完代理操作后，复制老师给的网址 proxychains4 git clone <a target="_blank" rel="noopener" href="https://github.com/makdosx/mip22">https://github.com/makdosx/mip22</a></p>
+<h2 id="③建立mip文件"><a href="#③建立mip文件" class="headerlink" title="③建立mip文件"></a>③建立mip文件</h2><p>输入以下三行代码建立mip文件并获取钓鱼网站</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd mip22</span><br><span class="line">chmod +x /*</span><br><span class="line">proxychains4 bash ./mip22.sh</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>至此准备工作全部做完，进入攻击菜单后选择一款包装好的钓鱼网站，并且在cloudflare中获取其http(s)。别人点开该网址后会记录下相关的信息，这些信息会保存在root中的mip22文件当中，可以点开查看</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1701173700425-0f6f0024-dc3f-42b4-93ac-cd31fa00ef81-17014208592622.png" alt="img"></p>
 
       </section>
 
@@ -159,12 +162,10 @@
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
-      <div class="card-cover" background-image-lazy data-img="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/Hippopx-17014127375681.jpg"></div>
-    
     <div class="card-text">
       
-        <a href="/2023/12/01/TG%E7%9A%84%E6%B3%A8%E5%86%8C%E5%92%8C%E6%B0%B8%E6%81%92%E4%B9%8B%E9%BB%91/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">TG的注册和永恒之黑</h2>
+        <a href="/2023/11/30/VScode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">VScode环境配置</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -172,20 +173,6 @@
   </article>
 </div>
           
-          
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
-      
-        <a href="/2023/11/30/VScode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">VScode环境配置</h2>
-        </a>
-      
-      <div class="card-text--row">Older</div>
-    </div>
-  </article>
-</div>
           
         </nav>
       

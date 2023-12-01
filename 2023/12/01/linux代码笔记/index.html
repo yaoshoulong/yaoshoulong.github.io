@@ -24,7 +24,7 @@
 
   
 
-  <title>test_my_site | Sasuki</title>
+  <title>linux代码笔记 | Sasuki</title>
 
   
 
@@ -101,11 +101,11 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">test_my_site</h1>
+          <h1 class="title-wrap">linux代码笔记</h1>
           <h2 class="title-sub-wrap">
             <strong>Ys1</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2023-11-30T02:30:28.000Z" itemprop="datePublished">2023-11-30</time>
+            <time  class="article-date" datetime="2023-12-01T09:00:16.000Z" itemprop="datePublished">2023-12-01</time>
           </h2>
           
           
@@ -136,27 +136,58 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        
+        <h1 id="linux代码含义"><a href="#linux代码含义" class="headerlink" title="linux代码含义"></a>linux代码含义</h1><p>ls &#x3D;查看目录下的文件</p>
+<p>ls &#x2F; &#x3D;访问根目录</p>
+<p>隐藏文件：&#x3D; .xxxxx前有个.</p>
+<p>ls -a &#x3D;可以查看隐藏文件</p>
+<p>ls .. &#x3D;访问上一级文件</p>
+<p>touch 文件名 &#x3D;创建文件&#x2F; .文件名 创建隐藏文件</p>
+<p>ls -d &#x3D;只查看目录</p>
+<p>ls -al &#x3D;显示当前目录下所有文件及属性<img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1701396248534-42ffc823-6e8e-4db6-b2f4-2718510e6a09.png" alt="img"></p>
+<p>d:目录&#x2F;-:文件&#x2F;l:链接，3个字符一组分为 所有者&#x2F;所属组&#x2F;其他人 的权限</p>
+<p>r :4&#x2F;w:2&#x2F;x:1 读&#x2F;写&#x2F;执行</p>
+<p>mkdir test&#x3D;创建文件夹</p>
+<p>mkdir -p test1&#x2F;test2&#x2F;test3 &#x3D;创建递归目录</p>
+<p>whoami 查看用户</p>
+<p>id查看信息</p>
+<p>pwd 查看目录</p>
+<p>rm -f 文件名&#x3D;强制删除文件&#x2F;rm -rf 文件夹&#x3D;强制删除文件夹&#x2F;rm -rf  &#x2F;*&#x3D;删除根目录</p>
+<p>ls &#x2F;bin 查看bin下所有目录，ls &#x2F;bin |  grep(筛选) mv &#x3D;查找带mv的文件</p>
+<p>ls &#x2F;bin |less查看bin中的可执行文件，q退出</p>
+<p>cat xx&#x2F;xxx查看文本文档&#x2F;cat -n xxx，查看行号</p>
+<p>vi 文件名&#x3D;编辑文本，i插入模式修改，:wq!保存，:q!退出</p>
+<p>touch 文件名 文件名&#x3D;修改时间一样</p>
+<p>chmod 755 xxx&#x3D;改权限</p>
+<p>echo “xxxxx” &gt;&gt; xxx&#x3D;输出追加</p>
+<p>find &#x2F; -name xx&#x3D;查找根目录下的关于名字叫xx的文件，-iname &#x3D;不区分大小写</p>
+<p>find &#x2F; -name ‘<em>test</em>‘ &#x3D;‘**’相当于查找关键词</p>
+<p>useradd admin&#x3D;创建用户，passwd 用户名&#x3D;创建密码</p>
+<p>ping baidu.com -c 3&#x3D;linux链接百度测试有没有网</p>
+<p>systemctl enable sshd&#x3D;开机自启动，systemctl start sshd&#x3D;现在启动</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1701411949144-c8c4fdc0-85be-4a89-9a7e-612315fa358c.png" alt="img"></p>
+<p>ip add 在虚拟机cmd中输 入 ssh <a href="mailto:&#x72;&#111;&#111;&#x74;&#64;&#49;&#57;&#x32;&#46;&#49;&#x36;&#56;&#46;&#120;&#x78;&#46;&#120;&#x78;">&#x72;&#111;&#111;&#x74;&#64;&#49;&#57;&#x32;&#46;&#49;&#x36;&#56;&#46;&#120;&#x78;&#46;&#120;&#x78;</a>链接</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1701398627480-cae6ba4b-bedb-4df3-bbcb-b1a6ad35b605.png" alt="img"></p>
+
       </section>
 
       
       
         <nav class="article-nav">
           
+          
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
     <div class="card-text">
       
-        <a href="/2023/11/30/%E5%B0%8F%E5%BA%86%E5%BA%86/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">test</h2>
+        <a href="/2023/12/01/%E8%87%AA%E5%88%B6%E9%92%93%E9%B1%BC%E7%BD%91%E7%AB%99/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">自制钓鱼网站</h2>
         </a>
       
-      <div class="card-text--row">Newer</div>
+      <div class="card-text--row">Older</div>
     </div>
   </article>
 </div>
-          
           
         </nav>
       
@@ -400,7 +431,7 @@
         <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
 </svg>
-        <span>5</span>
+        <span>8</span>
       </div>
       <div class="count-box--item">
         <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -554,5 +585,5 @@
 
   
   <!-- 尾部用户自定义相关内容 -->
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/unitychan.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
 </html>
