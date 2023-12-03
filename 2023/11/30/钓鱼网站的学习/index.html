@@ -110,7 +110,7 @@
           
             <h2 class="last-time">
               <span>最后更新于</span>
-              <time  class="article-updated" datetime="2023-12-02T09:40:36.779Z" itemprop="dateUpdated">2023-12-02</time>
+              <time  class="article-updated" datetime="2023-12-03T06:03:32.638Z" itemprop="dateUpdated">2023-12-03</time>
             </h2>
           
           
@@ -143,14 +143,21 @@
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
         <h1 id="钓鱼网站的学习"><a href="#钓鱼网站的学习" class="headerlink" title="钓鱼网站的学习"></a>钓鱼网站的学习</h1><p>注：在虚拟机kali系统中进行</p>
 <h2 id="①给虚拟机挂上代理"><a href="#①给虚拟机挂上代理" class="headerlink" title="①给虚拟机挂上代理"></a>①给虚拟机挂上代理</h2><ol>
-<li>在物理机上的clash🐱中挂上代理并开启局域网，将<strong>端口</strong>和<strong>ip地址</strong>分享给虚拟机</li>
-<li>在kali系统中挂代理，在cmd中输入<code>vim /etc/proxychains4.conf</code>在底端代码中,按<strong>i</strong>选择插入模式,将最后一行改成socks5 192.168.xx.xx(物理机的ip地址),回车输入<code>:wq!</code>保存操作，至此完成kali系统的代理</li>
+<li><p>在物理机上的clash🐱中挂上代理并开启局域网，将<strong>端口</strong>和<strong>ip地址</strong>分享给虚拟机</p>
+</li>
+<li><p>在kali系统中挂代理，在cmd中输入<code>vim /etc/proxychains4.conf</code>在底端代码中,按<strong>i</strong>选择插入模式,将最后一行改成socks5 192.168.xx.xx(物理机的ip地址),回车输入<code>:wq!</code>保存操作，至此完成kali系统的代理</p>
+<p><img src="https://raw.githubusercontent.com/taijia12/tuchuang/main/image/image-2.png" alt="Alt text"></p>
+</li>
 </ol>
 <h2 id="②下载老师给的钓鱼网站"><a href="#②下载老师给的钓鱼网站" class="headerlink" title="②下载老师给的钓鱼网站"></a>②下载老师给的钓鱼网站</h2><p>进行完代理操作后，复制老师给的网址 proxychains4 git clone <a target="_blank" rel="noopener" href="https://github.com/makdosx/mip22">https://github.com/makdosx/mip22</a></p>
 <h2 id="③建立mip文件"><a href="#③建立mip文件" class="headerlink" title="③建立mip文件"></a>③建立mip文件</h2><p>输入以下三行代码建立mip文件并获取钓鱼网站</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd mip22</span><br><span class="line">chmod +x /*</span><br><span class="line">proxychains4 bash ./mip22.sh</span><br></pre></td></tr></table></figure>
 
+<p><img src="https://raw.githubusercontent.com/taijia12/tuchuang/main/image/image-5.png" alt="Alt text"></p>
 <p>至此准备工作全部做完，进入攻击菜单后选择一款包装好的钓鱼网站，并且在cloudflare中获取其http(s)。别人点开该网址后会记录下相关的信息，这些信息会保存在root中的mip22文件当中，可以点开查看</p>
+<p><img src="https://raw.githubusercontent.com/taijia12/tuchuang/main/image/image-6.png" alt="Alt text"></p>
+<p><img src="https://raw.githubusercontent.com/taijia12/tuchuang/main/image/image-7.png" alt="Alt text"></p>
+<p><img src="https://raw.githubusercontent.com/taijia12/tuchuang/main/image/image-8.png" alt="Alt text"></p>
 <p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1701173700425-0f6f0024-dc3f-42b4-93ac-cd31fa00ef81-17014208592622.png" alt="img"></p>
 
       </section>
