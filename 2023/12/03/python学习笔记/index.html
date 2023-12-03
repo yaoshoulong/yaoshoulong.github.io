@@ -24,7 +24,7 @@
 
   
 
-  <title>钓鱼网站的学习 | Sasuki</title>
+  <title>python学习笔记 | Sasuki</title>
 
   
 
@@ -50,7 +50,7 @@
 <!-- header container -->
 <header class="header-container post">
   
-    <div class="post-image" style="background-image: url(https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/113607128_p3.png)"></div>
+    <div class="post-image" style="background-image: url(https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/113859340_p0_master1200.jpg)"></div>
   
 
   <!-- navbar -->
@@ -101,17 +101,12 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">钓鱼网站的学习</h1>
+          <h1 class="title-wrap">python学习笔记</h1>
           <h2 class="title-sub-wrap">
             <strong>Ys1</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2023-11-30T02:30:28.000Z" itemprop="datePublished">2023-11-30</time>
+            <time  class="article-date" datetime="2023-12-03T03:05:16.000Z" itemprop="datePublished">2023-12-03</time>
           </h2>
-          
-            <h2 class="last-time">
-              <span>最后更新于</span>
-              <time  class="article-updated" datetime="2023-12-02T09:40:36.779Z" itemprop="dateUpdated">2023-12-02</time>
-            </h2>
           
           
           <ul class="wrap-list dark">
@@ -141,17 +136,7 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h1 id="钓鱼网站的学习"><a href="#钓鱼网站的学习" class="headerlink" title="钓鱼网站的学习"></a>钓鱼网站的学习</h1><p>注：在虚拟机kali系统中进行</p>
-<h2 id="①给虚拟机挂上代理"><a href="#①给虚拟机挂上代理" class="headerlink" title="①给虚拟机挂上代理"></a>①给虚拟机挂上代理</h2><ol>
-<li>在物理机上的clash🐱中挂上代理并开启局域网，将<strong>端口</strong>和<strong>ip地址</strong>分享给虚拟机</li>
-<li>在kali系统中挂代理，在cmd中输入<code>vim /etc/proxychains4.conf</code>在底端代码中,按<strong>i</strong>选择插入模式,将最后一行改成socks5 192.168.xx.xx(物理机的ip地址),回车输入<code>:wq!</code>保存操作，至此完成kali系统的代理</li>
-</ol>
-<h2 id="②下载老师给的钓鱼网站"><a href="#②下载老师给的钓鱼网站" class="headerlink" title="②下载老师给的钓鱼网站"></a>②下载老师给的钓鱼网站</h2><p>进行完代理操作后，复制老师给的网址 proxychains4 git clone <a target="_blank" rel="noopener" href="https://github.com/makdosx/mip22">https://github.com/makdosx/mip22</a></p>
-<h2 id="③建立mip文件"><a href="#③建立mip文件" class="headerlink" title="③建立mip文件"></a>③建立mip文件</h2><p>输入以下三行代码建立mip文件并获取钓鱼网站</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd mip22</span><br><span class="line">chmod +x /*</span><br><span class="line">proxychains4 bash ./mip22.sh</span><br></pre></td></tr></table></figure>
-
-<p>至此准备工作全部做完，进入攻击菜单后选择一款包装好的钓鱼网站，并且在cloudflare中获取其http(s)。别人点开该网址后会记录下相关的信息，这些信息会保存在root中的mip22文件当中，可以点开查看</p>
-<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1701173700425-0f6f0024-dc3f-42b4-93ac-cd31fa00ef81-17014208592622.png" alt="img"></p>
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url =<span class="string">&quot;https://httpbin.org/get&quot;</span></span><br><span class="line">r = requests.get(url)</span><br><span class="line"><span class="built_in">print</span>(r.status_code)</span><br><span class="line"><span class="comment">#+左右两端必须是字符串，表示字符串连接，加法只能是str+str</span></span><br><span class="line">a = <span class="string">&quot;我是帅哥&quot;</span></span><br><span class="line">b =<span class="string">&quot;是真的帅&quot;</span></span><br><span class="line"><span class="built_in">print</span>(a+b)<span class="comment">#print(1+a)不行</span></span><br><span class="line"><span class="comment">#一个字符串只能乘以一个数字，表示字符串重复的</span></span><br><span class="line"><span class="built_in">print</span>(a*<span class="number">5</span>)</span><br><span class="line"><span class="comment">#布尔判断，真-&gt;True 假-&gt;False</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">100</span>&gt;<span class="number">30</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="number">100</span>&lt;<span class="number">30</span>)</span><br><span class="line"><span class="comment">#ctrl+/多行注释</span></span><br><span class="line">a = <span class="literal">False</span></span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line"><span class="built_in">input</span>(<span class="string">&quot;请输入一个数字:%d&quot;</span>&amp;b)![113859340_p0_master1200](https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/113859340_p0_master1200.jpg)</span><br></pre></td></tr></table></figure>
 
       </section>
 
@@ -159,22 +144,22 @@
       
         <nav class="article-nav">
           
+          
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
     
-      <div class="card-cover" background-image-lazy data-img="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/109004781_p0.jpg"></div>
+      <div class="card-cover" background-image-lazy data-img="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/112968182_p0.png"></div>
     
     <div class="card-text">
       
-        <a href="/2023/11/30/VScode%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">VScode环境配置</h2>
+        <a href="/2023/12/03/markdown%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">markdown使用说明</h2>
         </a>
       
-      <div class="card-text--row">Newer</div>
+      <div class="card-text--row">Older</div>
     </div>
   </article>
 </div>
-          
           
         </nav>
       
