@@ -1,0 +1,352 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>sql-labs记录 | Sasuki</title><meta name="author" content="Ys1"><meta name="copyright" content="Ys1"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="第一关 输入 ?id&#x3D;-1 order by 3– - ，判断列数的同时找出闭合点，如图可以看出闭合点是1’ 闭合之后未报错，可以得出一共有3列，然后使用联合查询语句 **?id&#x3D;-1’ and 1&#x3D;2 union select 1,group_concat(schema_name),3 from information_schema.schemata– -**爆出数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sql-labs记录">
+<meta property="og:url" content="http://example.com/2024/01/08/sql-labs%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="Sasuki">
+<meta property="og:description" content="第一关 输入 ?id&#x3D;-1 order by 3– - ，判断列数的同时找出闭合点，如图可以看出闭合点是1’ 闭合之后未报错，可以得出一共有3列，然后使用联合查询语句 **?id&#x3D;-1’ and 1&#x3D;2 union select 1,group_concat(schema_name),3 from information_schema.schemata– -**爆出数">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/IMG_3964.PNG">
+<meta property="article:published_time" content="2024-01-08T01:27:48.000Z">
+<meta property="article:modified_time" content="2024-01-08T01:36:07.213Z">
+<meta property="article:author" content="Ys1">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/IMG_3964.PNG"><link rel="shortcut icon" href="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/IMG_4127.jpg"><link rel="canonical" href="http://example.com/2024/01/08/sql-labs%E8%AE%B0%E5%BD%95/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'sql-labs记录',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-08 09:36:07'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu@1.1.6/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/IMG_3964.PNG" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">22</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 文档</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 娱乐</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Sasuki"><span class="site-name">Sasuki</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 文档</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 娱乐</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">sql-labs记录</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-01-08T01:27:48.000Z" title="Created 2024-01-08 09:27:48">2024-01-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-01-08T01:36:07.213Z" title="Updated 2024-01-08 09:36:07">2024-01-08</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="sql-labs记录"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="第一关"><a href="#第一关" class="headerlink" title="第一关"></a>第一关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703473893678-a74d917b-1305-43e9-8cd1-025ad37d827e.png" alt="img"></p>
+<p>输入 <strong>?id&#x3D;-1 order by 3– -</strong> ，判断列数的同时找出闭合点，如图可以看出闭合点是1’</p>
+<p>闭合之后未报错，可以得出一共有3列，然后使用联合查询语句 **?id&#x3D;-1’ and 1&#x3D;2 union select 1,group_concat(schema_name),3 from information_schema.schemata– -**爆出数据库</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703474147013-3bdab994-f3d1-49ab-99ef-50f3bc28966c.png" alt="img"></p>
+<h3 id="第二关"><a href="#第二关" class="headerlink" title="第二关"></a>第二关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703474270251-ead2d0db-8fba-4bcf-9af8-9b6323a9628d.png" alt="img"></p>
+<p>同样是先找闭合点，此题自行闭合，直接上联合查询语句即可**?id&#x3D;-1 and 1&#x3D;2 union select 1,group_concat(schema_name),3 from information_schema.schemata– -**</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703474349641-53bbea40-2d11-4212-ba91-2113ba0362c4.png" alt="img"></p>
+<h3 id="第三关"><a href="#第三关" class="headerlink" title="第三关"></a>第三关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703474404316-a65d6d70-05a5-4003-a55f-4b9968ffaa69.png" alt="img"></p>
+<p>由图可知此题闭合点在 -1’)，闭合之后用联合查询可以爆出数据库**?id&#x3D;-1’) and 1&#x3D;2 union select 1,group_concat(schema_name),3 from information_schema.schemata– -**</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703474749536-c0fd8b88-fb51-4440-9117-0dd1d438a97d.png" alt="img"></p>
+<p>第四关</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703474523196-87c9abe0-4e25-4723-a4de-f599c003fd03.png" alt="img"></p>
+<p>由图可知此题闭合点在 -1”) ，闭合之后用联合查询得出结果**?id&#x3D;-1”) and 1&#x3D;2 union select 1,group_concat(schema_name),3 from information_schema.schemata– -**</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703474577018-0583ae0a-21e1-41a6-ac2c-f4cdbf1e261e.png" alt="img"></p>
+<h3 id="第五关"><a href="#第五关" class="headerlink" title="第五关"></a>第五关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703474792543-7ca8d1ca-950e-4696-8f52-32f5eda66de8.png" alt="img"></p>
+<p>此题闭合点是 -1’ ，但是在使用联合语句查询之后，回显一直显示<img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703474853038-ed9022cd-3a55-4caa-a058-e676567ff499.png" alt="img">可以由此得知这道题无法使用查询语句，所以可以尝试使用报错函数来解决，在输入 **?id&#x3D;-1’ and (updatexml(1,concat(0x7e,(select user()),0x7e),1))– -**之后成功爆出数据库，sql注入成功</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703474945734-2eaa7d6e-e14b-456e-a105-80132844fbee.png" alt="img"></p>
+<h3 id="第六关"><a href="#第六关" class="headerlink" title="第六关"></a>第六关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703474978966-35af1fe2-1e1b-4304-8848-b0d1fc2b85ef.png" alt="img"></p>
+<p>由图知，闭合点是 -1” ，尝试使用联合查询，发现结果与第五关一样，只会显示”You are in…….”</p>
+<p>同样的，接着尝试报错函数 <strong>?id&#x3D;-1” and (updatexml(1,concat(0x7e,(select user()),0x7e),1))– -</strong> 成功注入<img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703475103043-9f0f9b23-c487-4fdd-a211-041fcb3f19b6.png" alt="img"></p>
+<h3 id="第七关"><a href="#第七关" class="headerlink" title="第七关"></a>第七关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703475137474-6ca1cea7-0b63-408c-ae23-ac3c7f0a2518.png" alt="img"></p>
+<p>由图知，闭合点在 -1’))，尝试使用联合查询，发现同样的注入失败，这次一直显示的是”You are in… Use outfile……”，尝试使用报错函数发现同样注入失败，提示sql语句报错</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703475290303-d3ca4371-100c-422f-bded-d71753bb878e.png" alt="img"></p>
+<p>只能尝试使用盲注脚本进行注入，把回显和比闭合条件进行更改后运行，成功爆出数据库名</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703484643598-7f0a45f7-1a61-49a8-959d-66d2ffb22bda.png" alt="img"></p>
+<h3 id="第八关"><a href="#第八关" class="headerlink" title="第八关"></a>第八关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703484697251-35b72009-90b5-48cf-a1b6-18bfaefb072c.png" alt="img"></p>
+<p>由图知，闭合点是在-1’，但是在闭合之后没有任何反应也没有回显，使用报错函数发现也没有回显，但是用联合查询能够回显”You are in …..”,所以同样使用盲注脚本</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703484863814-8f84bdaf-9b5b-4726-bae7-8a0e7bcd8dc2.png" alt="img"></p>
+<h3 id="第九关"><a href="#第九关" class="headerlink" title="第九关"></a>第九关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703484935698-28902ca8-488c-4321-97e4-760eb08f1f2c.png" alt="img"></p>
+<p>与七八关相同，闭合之后无论是报错函数还是联合查询都是一直显示”You are in….”，所以使用盲注脚本，发现盲注脚本同样无法爆出数据库，所以改用睡眠注入脚本，成功注入</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703489227785-4774258a-7c56-4db0-9868-465fc1bd680a.png" alt="img"></p>
+<h3 id="第十关"><a href="#第十关" class="headerlink" title="第十关"></a>第十关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703489266341-935bf55b-9e45-418f-b62a-19a63caea905.png" alt="img"></p>
+<p>找到闭合点是 1”，但是无论是用联合查询还是报错函数都是显示”You are in ……”</p>
+<p>使用盲注脚本也是无法注入，使用睡眠脚本成功注入</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703489358789-5186a213-969c-4d4c-9bbe-e0af96ab2cb1.png" alt="img"></p>
+<h3 id="第十一关"><a href="#第十一关" class="headerlink" title="第十一关"></a>第十一关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703489482158-7be1db00-0bbe-4801-86a4-56f9ddb35750.png" alt="img"></p>
+<p>输入账号密码后有正常回显，直接在账户名框中使用报错函数 <strong>1’ and</strong> **(updatexml(1,concat(0x7e,(select user()),0x7e),1))– -**，成功注入</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703489519704-df703ff0-c9d1-46a1-8bb2-1067cdc6b259.png" alt="img"></p>
+<h3 id="第十二关"><a href="#第十二关" class="headerlink" title="第十二关"></a>第十二关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703489552369-404aa1c1-5f41-4ebe-a4e7-2f69642b9569.png" alt="img"></p>
+<p>由图知，闭合点是1”)，输入账号密码有正常回显，直接使用报错函数 **1”) and (updatexml(1,concat(0x7e,(select user()),0x7e),1))– -**成功注入</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703489661593-75a0068c-78c3-43e4-8d55-66b0c644a537.png" alt="img"></p>
+<h3 id="第十三关"><a href="#第十三关" class="headerlink" title="第十三关"></a>第十三关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703489723184-5844035a-6019-45ba-a20d-3f74eaa4392d.png" alt="img"></p>
+<p>与上一题同样的方法，不过闭合点不同，这道题的闭合点在1’)，闭合之后使用报错函数 <strong>1’) and (updatexml(1,concat(0x7e,(select user()),0x7e),1))– -成功注入</strong></p>
+<h3 id="第十四关"><a href="#第十四关" class="headerlink" title="第十四关"></a>第十四关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703489807975-2dbd5c19-006f-44e9-8f2c-0d1a3b457b32.png" alt="img"></p>
+<p>与上一关相似，闭合点在1”，闭合之后用报错函数 <strong>1” and</strong> **(updatexml(1,concat(0x7e,(select user()),0x7e),1))– -**成功注入</p>
+<h3 id="第十五关"><a href="#第十五关" class="headerlink" title="第十五关"></a>第十五关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703489954979-68734bc1-3414-4459-8873-0bbd40f84c59.png" alt="img"></p>
+<p>此题闭合点在1’，但是无论是输入报错函数还是账号密码都没有回显，所以使用脚本进行盲注，成功注入</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703490030368-eff641e9-f643-45ce-9f01-a5a97c86332c.png" alt="img"></p>
+<h3 id="第十六关"><a href="#第十六关" class="headerlink" title="第十六关"></a>第十六关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703490143528-09a07cdb-2619-4dfc-b331-001a4b1d7e48.png" alt="img"></p>
+<p>这道题闭合点在1”)，输入语句有正常回显，所以使用报错函数 <strong>1”) and</strong> **(updatexml(1,concat(0x7e,(select user()),0x7e),1))– -**，成功注入</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703490122000-4a4b69d8-3e7a-42df-88ff-3ecaf00051a0.png" alt="img"></p>
+<h3 id="第十七关"><a href="#第十七关" class="headerlink" title="第十七关"></a>第十七关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703490190456-5c41dcab-0711-4934-9d55-b7418706574a.png" alt="img"></p>
+<p>此题闭合点在1’，但是在账户名输入’的话，代码会自动转换成\ ，所以无法进行正常语句输入，在密码框中尝试爆出数据库，使用报错函数 <strong>1’ and</strong> **(updatexml(1,concat(0x7e,(select user()),0x7e),1))– -**成功注入</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703490511411-85bff3e7-5363-4794-9ac9-fb3174e6bddd.png" alt="img"></p>
+<h3 id="第十八关"><a href="#第十八关" class="headerlink" title="第十八关"></a>第十八关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703490631975-77faf2bb-2dbd-48e8-bc90-034c7673610c.png" alt="img"></p>
+<p>在输入正确账户密码后才有回显，但是无论是在账户还是密码框中使用语句都无法注入，所以使用工具yakit进行抓包后再进行注入</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703490753615-83077956-e436-47ef-8a07-11477ba3866b.png" alt="img"></p>
+<p>既然只有UA头中有回显，那就直接在UA头后面进行报错语句的插入，发送请求后发现注入成功</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703490797442-bc3bac85-11af-4156-857c-3f9dc993a2f3.png" alt="img"></p>
+<h3 id="第十九关"><a href="#第十九关" class="headerlink" title="第十九关"></a>第十九关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703490823121-e6b658ee-b0f0-476d-ac6e-ea88401b2efd.png" alt="img"></p>
+<p>与第十九关相似，不过这一次回显的地方是在Refer中，所以步骤一样，不过这次的报错函数是写在You Referer后面</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703490881263-16a7dff9-4b61-41f0-a219-8d6363ffeedf.png" alt="img"></p>
+<p>发送请求后，成功注入</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703490894414-fd5d8e38-a071-4f40-98f5-439c4738429e.png" alt="img"></p>
+<h3 id="第二十关"><a href="#第二十关" class="headerlink" title="第二十关"></a>第二十关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703493234327-525552fe-c743-4773-800f-a676fd790363.png" alt="img"></p>
+<p>在输入账号密码之后会显示以上情况，在抓包之后尝试了在UA后面使用报错函数发现没反应，后面在COOKIE后面使用报错函数成功注入</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703493313417-c299252e-b0e5-4271-9e20-5dd2b1306b71.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703493319984-4a7c2714-439c-4eb0-8525-4a396f25047a.png" alt="img"></p>
+<h3 id="第二十一关"><a href="#第二十一关" class="headerlink" title="第二十一关"></a>第二十一关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703494433353-21a603cf-f471-4a9c-bf39-082c47848b5a.png" alt="img"></p>
+<p>输入账号密码之后发现COOKIE中的用户名被加密了，用hackbar将 1’ order by 3– -语句进行加密后作用到uname上</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703494720112-b367cb63-6291-42c5-ab15-c9d93a8807b0.png" alt="img">由此得出闭合点是’)，</p>
+<p>所以将**admin ‘) and (updatexml(1,concat(0x7e,(select user()),0x7e),1)) – -**进行编码之后放到COOKIE中的uname后面，就能注入成功</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703496047679-f94cd5d4-a545-46c5-9364-5a58048975aa.png" alt="img"></p>
+<h3 id="第二十二关"><a href="#第二十二关" class="headerlink" title="第二十二关"></a>第二十二关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703504701685-5cd92a8c-8105-4933-b988-98d817b9be20.png" alt="img"></p>
+<p>跟上一关类似，不过这一关的闭合点是admin”,改一下闭合点就能注入成功</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703504778295-f05b0595-6a83-4376-ad79-b618a8433cc6.png" alt="img"></p>
+<h3 id="第二十三关"><a href="#第二十三关" class="headerlink" title="第二十三关"></a>第二十三关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703509664049-a383840c-7e97-4c33-93e3-4ce81d9a0403.png" alt="img"></p>
+<p>此关无法闭合，通过源码可以得知，注释符无法生效，所以需要手动注释</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703509724115-409323fe-0bc0-4798-8667-898ec11f3f21.png" alt="img"></p>
+<h3 id="第二十四关"><a href="#第二十四关" class="headerlink" title="第二十四关"></a>第二十四关</h3><h3 id="第二十五关"><a href="#第二十五关" class="headerlink" title="第二十五关"></a>第二十五关</h3><p>这关找出闭合点是1’,在查询字段数的时候发现or和and被注释掉了</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703644589868-8539347b-0d18-4ef0-af3c-9c2377e9a3fe.png" alt="img"></p>
+<p>尝试双写or，成功绕过并且注入</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703645004844-9f371529-6113-4afc-938f-6fc2d61fa3b5.png" alt="img"></p>
+<h3 id="第二十五a关"><a href="#第二十五a关" class="headerlink" title="第二十五a关"></a>第二十五a关</h3><p>此关无论怎么样尝试闭合都无效，判断这关不需要闭合，跟上关一样，or和and被注释掉了，所以上联合查询语句进行查询</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703645328949-1af836be-e890-4861-9b5f-d0b65c9ff255.png" alt="img"></p>
+<h3 id="第二十六关"><a href="#第二十六关" class="headerlink" title="第二十六关"></a>第二十六关</h3><p>这一关判断出闭合点是1’，然后使用语句查询发现空格符，注释符都被注释掉了，与之前一样，and和or也被注释了但是可以用双写来代替，注释符可以使用手动闭合来解决</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703645715538-3d861e08-b07a-4f7f-b795-efb99b58c582.png" alt="img"></p>
+<h3 id="第二十六a关"><a href="#第二十六a关" class="headerlink" title="第二十六a关"></a>第二十六a关</h3><p>此关的闭合点找到在1’，与上一关一样，同样的被注释掉了很多东西，但是根据上一关的攻略可以一一破解</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703645976964-75f7dd86-68cd-404f-adc8-1d570177360d.png" alt="img"></p>
+<p>是用报错函数后发现页面没有正常回显，所以尝试用脚本盲注成功注入</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703646087882-28b26408-4589-4105-a89d-3a76471015bb.png" alt="img"></p>
+<h3 id="第二十七关"><a href="#第二十七关" class="headerlink" title="第二十七关"></a>第二十七关</h3><p>找到这关的闭合点是1’，但是注释符和空格符被注释掉了，只能进行手动注释</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703646211248-c6f8fc68-4db1-41e7-84f9-fb1cb9f04d70.png" alt="img"></p>
+<p>发现union也被注释了，上报错函数成功注入</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703646257674-2bc056f5-0053-44c3-9ea5-acd6f554fa08.png" alt="img"></p>
+<h3 id="第二十七a关"><a href="#第二十七a关" class="headerlink" title="第二十七a关"></a>第二十七a关</h3><p>找到此关闭合点是1”，但是输入东西没有正常回显</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703646459127-651f09d3-61b2-42da-a08d-6e629b6a9b52.png" alt="img"></p>
+<p>使用盲注脚本，成功注入</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703646495977-d2361dac-d6a7-4545-8d0d-09a10e5f843d.png" alt="img"></p>
+<h3 id="第二十八关"><a href="#第二十八关" class="headerlink" title="第二十八关"></a>第二十八关</h3><p>此关闭合点在1’，由于回显不明显，直接用盲注脚本成功注入</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703647197947-73c4032c-0580-45c4-b6fc-4d503ce258cf.png" alt="img"></p>
+<h3 id="第二十八a关"><a href="#第二十八a关" class="headerlink" title="第二十八a关"></a>第二十八a关</h3><p>此关的闭合点在1’，与上关相似，没有明显回显用盲注脚本注入</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703647300662-10b33ae2-8b7c-4926-9341-e9d235ea39a5.png" alt="img"></p>
+<h3 id="第二十九关"><a href="#第二十九关" class="headerlink" title="第二十九关"></a>第二十九关</h3><p>这关的闭合点在1’，但是很多字符全被转释掉了，所以直接用盲注脚本注入</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703647416858-b5a66a12-77a2-4601-b250-ef297ed74b51.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703647426416-5d77c4f6-ab8c-4426-bb4d-344ee6729a73.png" alt="img"></p>
+<h3 id="第三十关"><a href="#第三十关" class="headerlink" title="第三十关"></a>第三十关</h3><p>这关的闭合点在1”，使用联合查询直接查询出数据库了</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703647543619-6a4f421d-0e28-4db2-a08e-4f581aa58fd9.png" alt="img"></p>
+<h3 id="第三十一关"><a href="#第三十一关" class="headerlink" title="第三十一关"></a>第三十一关</h3><p>这关的闭合点在1”)，找到闭合点之后直接使用报错函数成功注入了</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703647625071-16c9d74a-eb39-4cbc-a086-1df958f6e4a5.png" alt="img"></p>
+<h3 id="第三十二关"><a href="#第三十二关" class="headerlink" title="第三十二关"></a>第三十二关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703647656438-fa6efd37-0331-43e6-9bfd-e8bcd8c8056a.png" alt="img"></p>
+<p>这一关发现’被转译成\了，所以得有%df来使得\失效，发现闭合点在1’</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703647733938-35c7bacf-4c63-4797-9c93-a77b4e20ba0b.png" alt="img"></p>
+<p>使用报错函数成功注入</p>
+<h3 id="第三十三关"><a href="#第三十三关" class="headerlink" title="第三十三关"></a>第三十三关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703647796936-cf1d4a02-54ec-48b7-9e9d-ddf926e7fd01.png" alt="img"></p>
+<p>解法与上一关一模一样</p>
+<h3 id="第三十四关"><a href="#第三十四关" class="headerlink" title="第三十四关"></a>第三十四关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703647894411-fd25ffd1-4ada-41ab-8baa-f2fbec08414c.png" alt="img"></p>
+<p>这一关是账户密码框类型，所以需要在yakit上面抓包来注入，输入0，0之后抓取一个post包<img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703647923466-ee4aa336-c659-4071-9f3a-6b5fb398fe7a.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703647941114-01d638e6-b4b5-4026-b232-c5d40f19bf50.png" alt="img"></p>
+<p>同样的’也被转译成了,所以用%df来让他失效，找到闭合点是1’，然后用报错函数成功注入</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703648035538-c61ebb41-7967-4e26-a25b-da69b966065e.png" alt="img"></p>
+<h3 id="第三十五关"><a href="#第三十五关" class="headerlink" title="第三十五关"></a>第三十五关</h3><p>这关无论如何闭合都不起效，所以判定为此关不用闭合，使用联合查询语句直接能够注入成功</p>
+<p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703657707969-17e6665d-9f74-467f-a597-3d62c6b367a0.png" alt="img"></p>
+<h3 id="第三十六关"><a href="#第三十六关" class="headerlink" title="第三十六关"></a>第三十六关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703658012787-54d3bf92-d625-48df-b4cc-3ad0eb72f808.png" alt="img"></p>
+<p>与上一题同解，不过这一题有转译，需要用%df抵消\然后找到闭合1’</p>
+<h3 id="第三十七关"><a href="#第三十七关" class="headerlink" title="第三十七关"></a>第三十七关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703658678286-e91581c1-dda2-4237-b041-e4c76a4c40dc.png" alt="img"></p>
+<p>解法与34关类似，本关闭合点在1’，同样的需要用%df来抵消\</p>
+<h3 id="第三十八关"><a href="#第三十八关" class="headerlink" title="第三十八关"></a>第三十八关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703658766235-77ef16fa-4ec8-4a8d-894c-26bab7d6915e.png" alt="img"></p>
+<p>找闭合点为1’,联合查询成功注入</p>
+<h3 id="第三十九关"><a href="#第三十九关" class="headerlink" title="第三十九关"></a>第三十九关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703658837654-70334801-2620-4e03-8018-f4cb398b44b8.png" alt="img"></p>
+<p>找闭合，判断出此题没有闭合，直接上联合查询成功注入</p>
+<h3 id="第四十关"><a href="#第四十关" class="headerlink" title="第四十关"></a>第四十关</h3><p><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/1703659050024-94a450ac-ccc4-418d-be90-297c8e8e86db.png" alt="img"></p>
+<p>本关唯一难点在于找到闭合是1’)，其他解法如上，联合查询成功注入</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">Ys1</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2024/01/08/sql-labs%E8%AE%B0%E5%BD%95/">http://example.com/2024/01/08/sql-labs%E8%AE%B0%E5%BD%95/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/IMG_3964.PNG" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/01/08/sql%E6%B3%A8%E5%85%A5/" title="sql注入"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">sql注入</div></div></a></div><div class="next-post pull-right"><a href="/2024/01/08/box%E6%89%93%E9%9D%B6/" title="money box打靶"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">money box打靶</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://raw.githubusercontent.com/yaoshoulong/tuchuang/main/img/IMG_3964.PNG" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Ys1</div><div class="author-info__description">总是走走停停</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">22</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%85%B3"><span class="toc-number">1.</span> <span class="toc-text">第一关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%85%B3"><span class="toc-number">2.</span> <span class="toc-text">第二关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%85%B3"><span class="toc-number">3.</span> <span class="toc-text">第三关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E5%85%B3"><span class="toc-number">4.</span> <span class="toc-text">第五关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E5%85%B3"><span class="toc-number">5.</span> <span class="toc-text">第六关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E5%85%B3"><span class="toc-number">6.</span> <span class="toc-text">第七关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E5%85%B3"><span class="toc-number">7.</span> <span class="toc-text">第八关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B9%9D%E5%85%B3"><span class="toc-number">8.</span> <span class="toc-text">第九关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E5%85%B3"><span class="toc-number">9.</span> <span class="toc-text">第十关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%80%E5%85%B3"><span class="toc-number">10.</span> <span class="toc-text">第十一关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%85%B3"><span class="toc-number">11.</span> <span class="toc-text">第十二关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%89%E5%85%B3"><span class="toc-number">12.</span> <span class="toc-text">第十三关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E5%9B%9B%E5%85%B3"><span class="toc-number">13.</span> <span class="toc-text">第十四关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%94%E5%85%B3"><span class="toc-number">14.</span> <span class="toc-text">第十五关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E5%85%AD%E5%85%B3"><span class="toc-number">15.</span> <span class="toc-text">第十六关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%83%E5%85%B3"><span class="toc-number">16.</span> <span class="toc-text">第十七关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E5%85%AB%E5%85%B3"><span class="toc-number">17.</span> <span class="toc-text">第十八关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B9%9D%E5%85%B3"><span class="toc-number">18.</span> <span class="toc-text">第十九关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E5%85%B3"><span class="toc-number">19.</span> <span class="toc-text">第二十关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%B8%80%E5%85%B3"><span class="toc-number">20.</span> <span class="toc-text">第二十一关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%BA%8C%E5%85%B3"><span class="toc-number">21.</span> <span class="toc-text">第二十二关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%B8%89%E5%85%B3"><span class="toc-number">22.</span> <span class="toc-text">第二十三关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E5%9B%9B%E5%85%B3"><span class="toc-number">23.</span> <span class="toc-text">第二十四关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%BA%94%E5%85%B3"><span class="toc-number">24.</span> <span class="toc-text">第二十五关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%BA%94a%E5%85%B3"><span class="toc-number">25.</span> <span class="toc-text">第二十五a关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E5%85%AD%E5%85%B3"><span class="toc-number">26.</span> <span class="toc-text">第二十六关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E5%85%ADa%E5%85%B3"><span class="toc-number">27.</span> <span class="toc-text">第二十六a关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%B8%83%E5%85%B3"><span class="toc-number">28.</span> <span class="toc-text">第二十七关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%B8%83a%E5%85%B3"><span class="toc-number">29.</span> <span class="toc-text">第二十七a关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E5%85%AB%E5%85%B3"><span class="toc-number">30.</span> <span class="toc-text">第二十八关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E5%85%ABa%E5%85%B3"><span class="toc-number">31.</span> <span class="toc-text">第二十八a关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%B9%9D%E5%85%B3"><span class="toc-number">32.</span> <span class="toc-text">第二十九关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%8D%81%E5%85%B3"><span class="toc-number">33.</span> <span class="toc-text">第三十关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%8D%81%E4%B8%80%E5%85%B3"><span class="toc-number">34.</span> <span class="toc-text">第三十一关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%8D%81%E4%BA%8C%E5%85%B3"><span class="toc-number">35.</span> <span class="toc-text">第三十二关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%8D%81%E4%B8%89%E5%85%B3"><span class="toc-number">36.</span> <span class="toc-text">第三十三关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%8D%81%E5%9B%9B%E5%85%B3"><span class="toc-number">37.</span> <span class="toc-text">第三十四关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%8D%81%E4%BA%94%E5%85%B3"><span class="toc-number">38.</span> <span class="toc-text">第三十五关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%8D%81%E5%85%AD%E5%85%B3"><span class="toc-number">39.</span> <span class="toc-text">第三十六关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%8D%81%E4%B8%83%E5%85%B3"><span class="toc-number">40.</span> <span class="toc-text">第三十七关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%8D%81%E5%85%AB%E5%85%B3"><span class="toc-number">41.</span> <span class="toc-text">第三十八关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%8D%81%E4%B9%9D%E5%85%B3"><span class="toc-number">42.</span> <span class="toc-text">第三十九关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%8D%81%E5%85%B3"><span class="toc-number">43.</span> <span class="toc-text">第四十关</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/01/08/sql%E6%B3%A8%E5%85%A5/" title="sql注入">sql注入</a><time datetime="2024-01-08T01:27:59.000Z" title="Created 2024-01-08 09:27:59">2024-01-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/01/08/sql-labs%E8%AE%B0%E5%BD%95/" title="sql-labs记录">sql-labs记录</a><time datetime="2024-01-08T01:27:48.000Z" title="Created 2024-01-08 09:27:48">2024-01-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/01/08/box%E6%89%93%E9%9D%B6/" title="money box打靶">money box打靶</a><time datetime="2024-01-08T01:27:34.000Z" title="Created 2024-01-08 09:27:34">2024-01-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/01/08/yakit-bp%E7%9A%84%E4%BD%BF%E7%94%A8/" title="yakit+bp的使用">yakit+bp的使用</a><time datetime="2024-01-08T01:27:14.000Z" title="Created 2024-01-08 09:27:14">2024-01-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/01/07/WAF%E5%AE%89%E5%85%A8%E7%8B%97%E5%AD%A6%E4%B9%A01/" title="WAF安全狗">WAF安全狗</a><time datetime="2024-01-07T13:49:53.000Z" title="Created 2024-01-07 21:49:53">2024-01-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Ys1</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu@1.1.6/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = '89e20fa7d8a94689bb2358c9a0e8d3b8';
+  var gaud_map_key = 'c0850013c190a07f2096da52e898c417';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.6534116,27.96920845';
+  var clock_default_rectangle_enable = 'true';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu@1.1.6/lib/clock.min.js"></script><script data-pjax src="https://npm.elemecdn.com/oh-my-live2d@0.3.0/dist/index.min.js"></script><script>
+OML2D.loadOhMyLive2D({
+  source:"",
+  mobileShow:true,
+  sayHello:false,
+  transitionTime:1000,
+  models:[{"scale":1.2,"path":"/live2d-model-xiaohei/黑崽生日快乐2023.model3.json","x":0,"y":0,"stageStyle":{"backgroundColor":"rgba(0, 0, 0, 0)","width":"auto","height":"auto"}}],
+  tips:{
+    style:{"width":230,"height":120,"offsetX":0,"offsetY":90},
+    
+    
+    idleTips:{
+      
+      
+      interval:15000,
+      
+      remote:function() {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      type: 'get',
+      url: 'https://v1.hitokoto.cn?c=i',
+      dataType: 'json',
+      success: res => {
+       // console.log(res);
+        resolve({text: res.hitokoto});
+      }
+    });
+  });
+}
+,
+    }
+  }
+  });
+  </script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/unitychan.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html>
